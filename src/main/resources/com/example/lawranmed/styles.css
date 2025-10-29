@@ -1,0 +1,12 @@
+.root {
+    -fx-font-family: 'Arial';
+}
+
+.button {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #4e98db;
+}
