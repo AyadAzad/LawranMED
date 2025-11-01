@@ -113,9 +113,9 @@ public class PatientsController {
 
     @FXML
     private void handleDeletePatient() {
-        int selectedIndex = patientsTable.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) {
-            patientsTable.getItems().remove(selectedIndex);
+        Patient selectedPatient = patientsTable.getSelectionModel().getSelectedItem();
+        if (selectedPatient != null) {
+            patientList.remove(selectedPatient);
         } else {
             showAlert("No Patient Selected", "Please select a patient in the table.");
         }
