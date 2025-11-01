@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.DoctorsController">
     <children>
-        <Label layoutX="250.0" layoutY="180.0" text="Doctors" />
+        <Label layoutX="30.0" layoutY="20.0" text="Doctors" textFill="#2c3e50">
+            <font>
+                <Font name="Arial Bold" size="36.0" />
+            </font>
+        </Label>
+        <HBox layoutX="30.0" layoutY="80.0" spacing="10.0">
+            <children>
+                <TextField fx:id="searchField" prefWidth="300.0" promptText="Search by name or specialization" />
+            </children>
+        </HBox>
+        <TableView fx:id="doctorsTable" layoutX="30.0" layoutY="130.0" prefHeight="400.0" prefWidth="740.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="100.0" text="First Name" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="100.0" text="Last Name" />
+                <TableColumn fx:id="specializationColumn" prefWidth="150.0" text="Specialization" />
+                <TableColumn fx:id="contactColumn" prefWidth="120.0" text="Contact" />
+                <TableColumn fx:id="emailColumn" prefWidth="150.0" text="Email" />
+            </columns>
+        </TableView>
+        <HBox layoutX="30.0" layoutY="540.0" spacing="10.0">
+            <children>
+                <Button onAction="#handleAddDoctor" prefWidth="100.0" text="Add" />
+                <Button onAction="#handleEditDoctor" prefWidth="100.0" text="Edit" />
+                <Button onAction="#handleDeleteDoctor" prefWidth="100.0" text="Delete" />
+            </children>
+        </HBox>
     </children>
 </AnchorPane>
