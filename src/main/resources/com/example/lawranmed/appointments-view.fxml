@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.AppointmentsController">
     <children>
-        <Label layoutX="250.0" layoutY="180.0" text="Appointments" />
+        <Label layoutX="30.0" layoutY="20.0" text="Appointments" textFill="#2c3e50">
+            <font>
+                <Font name="Arial Bold" size="36.0" />
+            </font>
+        </Label>
+        <HBox layoutX="30.0" layoutY="80.0" spacing="10.0">
+            <children>
+                <DatePicker fx:id="dateFilterPicker" promptText="Filter by date" />
+                <ComboBox fx:id="doctorFilterComboBox" prefWidth="150.0" promptText="Filter by doctor" />
+                <ComboBox fx:id="statusFilterComboBox" prefWidth="150.0" promptText="Filter by status" />
+                <Button onAction="#handleFilter" text="Filter" />
+                <Button onAction="#handleClearFilters" text="Clear" />
+            </children>
+        </HBox>
+        <TableView fx:id="appointmentsTable" layoutX="30.0" layoutY="130.0" prefHeight="400.0" prefWidth="740.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="patientNameColumn" prefWidth="150.0" text="Patient" />
+                <TableColumn fx:id="doctorNameColumn" prefWidth="150.0" text="Doctor" />
+                <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Date" />
+                <TableColumn fx:id="timeColumn" prefWidth="100.0" text="Time" />
+                <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Status" />
+                <TableColumn fx:id="reasonColumn" prefWidth="190.0" text="Reason" />
+            </columns>
+        </TableView>
+        <HBox layoutX="30.0" layoutY="540.0" spacing="10.0">
+            <children>
+                <Button onAction="#handleAddAppointment" prefWidth="100.0" text="Add" />
+                <Button onAction="#handleEditAppointment" prefWidth="100.0" text="Edit" />
+                <Button onAction="#handleCancelAppointment" prefWidth="100.0" text="Cancel" />
+            </children>
+        </HBox>
     </children>
 </AnchorPane>
