@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.BillingController">
     <children>
-        <Label layoutX="250.0" layoutY="180.0" text="Billing" />
+        <Label layoutX="30.0" layoutY="20.0" text="Billing" textFill="#2c3e50">
+            <font>
+                <Font name="Arial Bold" size="36.0" />
+            </font>
+        </Label>
+        <HBox layoutX="30.0" layoutY="80.0" spacing="10.0">
+            <children>
+                <DatePicker fx:id="dateFilterPicker" promptText="Filter by date" />
+                <ComboBox fx:id="statusFilterComboBox" prefWidth="150.0" promptText="Filter by status" />
+                <Button onAction="#handleFilter" text="Filter" />
+                <Button onAction="#handleClearFilters" text="Clear" />
+            </children>
+        </HBox>
+        <TableView fx:id="billingTable" layoutX="30.0" layoutY="130.0" prefHeight="400.0" prefWidth="740.0">
+            <columns>
+                <TableColumn fx:id="invoiceIdColumn" prefWidth="75.0" text="Invoice ID" />
+                <TableColumn fx:id="patientNameColumn" prefWidth="150.0" text="Patient" />
+                <TableColumn fx:id="appointmentIdColumn" prefWidth="100.0" text="Appointment ID" />
+                <TableColumn fx:id="amountColumn" prefWidth="100.0" text="Amount" />
+                <TableColumn fx:id="statusColumn" prefWidth="120.0" text="Status" />
+                <TableColumn fx:id="billingDateColumn" prefWidth="120.0" text="Billing Date" />
+            </columns>
+        </TableView>
+        <HBox layoutX="30.0" layoutY="540.0" spacing="10.0">
+            <children>
+                <Button onAction="#handleCreateInvoice" prefWidth="120.0" text="Create Invoice" />
+                <Button onAction="#handleViewDetails" prefWidth="120.0" text="View Details" />
+                <Button onAction="#handleUpdatePayment" prefWidth="120.0" text="Update Payment" />
+            </children>
+        </HBox>
     </children>
 </AnchorPane>
