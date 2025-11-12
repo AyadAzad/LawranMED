@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.PrescriptionFormController">
+    <children>
+        <Label layoutX="30.0" layoutY="20.0" text="Issue Prescription" textFill="#2c3e50">
+            <font>
+                <Font name="Arial Bold" size="28.0" />
+            </font>
+        </Label>
+        <HBox layoutX="30.0" layoutY="80.0" spacing="20.0">
+            <children>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Patient" />
+                        <ComboBox fx:id="patientComboBox" prefWidth="200.0" />
+                    </children>
+                </VBox>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="Doctor" />
+                        <ComboBox fx:id="doctorComboBox" prefWidth="200.0" />
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <VBox layoutX="30.0" layoutY="150.0" spacing="10.0">
+            <children>
+                <Label text="Add Drugs to Prescription" />
+                <HBox spacing="10.0">
+                    <children>
+                        <ComboBox fx:id="drugComboBox" prefWidth="200.0" promptText="Select Drug" />
+                        <TextField fx:id="quantityField" prefWidth="80.0" promptText="Quantity" />
+                        <Button onAction="#handleAddDrugToPrescription" text="Add" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <TableView fx:id="prescriptionTable" layoutX="30.0" layoutY="240.0" prefHeight="250.0" prefWidth="640.0">
+            <columns>
+                <TableColumn fx:id="drugNameColumn" prefWidth="250.0" text="Drug Name" />
+                <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantity" />
+                <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price" />
+                <TableColumn fx:id="totalColumn" prefWidth="100.0" text="Total" />
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER_RIGHT" layoutX="450.0" layoutY="540.0" spacing="10.0">
+            <children>
+                <Label fx:id="totalBillLabel" text="Total: \$0.00">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Button onAction="#handleDispense" prefWidth="100.0" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Dispense" />
+                <Button onAction="#handleCancel" prefWidth="80.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Cancel" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
