@@ -117,7 +117,8 @@ public class StaffController {
 
     private boolean showStaffEditDialog(Staff staff) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("staff-form.fxml"));
+            // Corrected resource path to be absolute from classpath root
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/lawranmed/staff-form.fxml"));
             Scene scene = new Scene(loader.load());
 
             Stage dialogStage = new Stage();

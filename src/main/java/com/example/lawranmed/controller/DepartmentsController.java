@@ -81,7 +81,8 @@ public class DepartmentsController {
 
     private boolean showDepartmentEditDialog(Department department) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("department-form.fxml"));
+            // Corrected resource path to be absolute from classpath root
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/lawranmed/department-form.fxml"));
             Scene scene = new Scene(loader.load());
 
             Stage dialogStage = new Stage();

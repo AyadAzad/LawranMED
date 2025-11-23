@@ -24,7 +24,8 @@ public class AdministrationController {
             .findFirst()
             .ifPresent(tab -> {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+                    // Corrected resource path to be absolute from classpath root
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/lawranmed/" + fxmlFile));
                     AnchorPane content = loader.load();
                     tab.setContent(content);
                 } catch (IOException e) {
