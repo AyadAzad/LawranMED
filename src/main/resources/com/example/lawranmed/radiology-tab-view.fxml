@@ -24,6 +24,8 @@
                 <TableColumn fx:id="requestIdColumn" prefWidth="75.0" text="Request ID" />
                 <TableColumn fx:id="patientNameColumn" prefWidth="150.0" text="Patient" />
                 <TableColumn fx:id="doctorNameColumn" prefWidth="150.0" text="Requesting Doctor" />
+                <TableColumn fx:id="scanTypeColumn" prefWidth="100.0" text="Scan Type" />
+                <TableColumn fx:id="detailedTestsColumn" prefWidth="200.0" text="Detailed Tests" />
                 <TableColumn fx:id="statusColumn" prefWidth="120.0" text="Status" />
                 <TableColumn fx:id="requestDateColumn" prefWidth="120.0" text="Request Date" />
             </columns>

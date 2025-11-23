@@ -6,25 +6,35 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.RadiologyReportFormController">
+<AnchorPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.RadiologyReportFormController">
     <children>
-        <Label fx:id="titleLabel" layoutX="30.0" layoutY="20.0" text="Radiology Report" textFill="#2c3e50">
-            <font>
-                <Font name="Arial Bold" size="28.0" />
-            </font>
-        </Label>
-        <Label fx:id="patientAndScanLabel" layoutX="30.0" layoutY="80.0" text="Patient: John Doe - Scan: X-Ray">
-            <font>
-                <Font name="Arial" size="16.0" />
-            </font>
-        </Label>
-        <TextArea fx:id="reportArea" layoutX="30.0" layoutY="120.0" prefHeight="200.0" prefWidth="440.0" wrapText="true" />
-        <HBox alignment="CENTER_RIGHT" layoutX="280.0" layoutY="340.0" spacing="10.0">
+        <VBox layoutX="30.0" layoutY="20.0" spacing="5.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
             <children>
-                <Button onAction="#handleSave" prefWidth="80.0" style="-fx-background-color: #3498db; -fx-text-fill: white;" text="Save" />
-                <Button onAction="#handleCancel" prefWidth="80.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Cancel" />
+                <Label fx:id="titleLabel" text="Radiology Report">
+                    <font>
+                        <Font name="Arial Bold" size="28.0" />
+                    </font>
+                </Label>
+                <Label fx:id="patientAndScanLabel" text="Patient: John Doe - Scan: X-Ray">
+                    <font>
+                        <Font name="Arial" size="16.0" />
+                    </font>
+                </Label>
+                <Label fx:id="detailedTestsLabel" text="Tests: " wrapText="true">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="reportArea" prefHeight="200.0" prefWidth="440.0" wrapText="true" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+        <HBox alignment="CENTER_RIGHT" layoutX="280.0" layoutY="390.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0">
+            <children>
+                <Button onAction="#handleSave" prefWidth="80.0" text="Save" />
+                <Button onAction="#handleCancel" prefWidth="80.0" text="Cancel" />
             </children>
         </HBox>
     </children>

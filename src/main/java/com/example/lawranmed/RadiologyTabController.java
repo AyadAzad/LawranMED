@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +18,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RadiologyTabController {
 
@@ -32,6 +35,10 @@ public class RadiologyTabController {
     private TableColumn<RadiologyRequest, String> patientNameColumn;
     @FXML
     private TableColumn<RadiologyRequest, String> doctorNameColumn;
+    @FXML
+    private TableColumn<RadiologyRequest, String> scanTypeColumn; // New FXML field
+    @FXML
+    private TableColumn<RadiologyRequest, List<String>> detailedTestsColumn; // New FXML field
     @FXML
     private TableColumn<RadiologyRequest, String> statusColumn;
     @FXML
@@ -52,12 +59,35 @@ public class RadiologyTabController {
         initializeTable();
     }
 
+    @FXML
+    private void initialize() {
+        // This initialize method is called automatically by FXMLLoader.
+        // It's important to ensure that table columns are set up here or in initializeTable().
+        // PropertyValueFactory setup is usually done here or in a dedicated setup method.
+        // The filteredData and setItems are dependent on setScanType being called first.
+    }
+
     private void initializeTable() {
         requestIdColumn.setCellValueFactory(new PropertyValueFactory<>("requestId"));
         patientNameColumn.setCellValueFactory(new PropertyValueFactory<>("patientName"));
         doctorNameColumn.setCellValueFactory(new PropertyValueFactory<>("doctorName"));
+        scanTypeColumn.setCellValueFactory(new PropertyValueFactory<>("scanType")); // Set value factory for scanTypeColumn
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         requestDateColumn.setCellValueFactory(new PropertyValueFactory<>("requestDate"));
+
+        // Set up cell factory for detailedTestsColumn to display List<String>
+        detailedTestsColumn.setCellValueFactory(new PropertyValueFactory<>("detailedTests"));
+        detailedTestsColumn.setCellFactory(tc -> new TableCell<RadiologyRequest, List<String>>() {
+            @Override
+            protected void updateItem(List<String> items, boolean empty) {
+                super.updateItem(items, empty);
+                if (empty || items == null) {
+                    setText(null);
+                } else {
+                    setText(items.stream().collect(Collectors.joining(", ")));
+                }
+            }
+        });
 
         filteredData = new FilteredList<>(allRequests.filtered(r -> r.getScanType().equals(scanType)), p -> true);
         radiologyTable.setItems(filteredData);
@@ -83,10 +113,10 @@ public class RadiologyTabController {
 
     @FXML
     private void handleNewRequest() {
-        RadiologyRequest newRequest = new RadiologyRequest(0, null, null, scanType, "Pending", LocalDate.now(), "");
+        RadiologyRequest newRequest = new RadiologyRequest(0, null, null, scanType, null, "Pending", LocalDate.now(), "");
         boolean saveClicked = showRequestEditDialog(newRequest);
         if (saveClicked) {
-            newRequest.setRequestId(allRequests.size() + 1);
+            newRequest.setRequestId(allRequests.size() + 1); // Simple ID generation
             allRequests.add(newRequest);
         }
     }
@@ -130,7 +160,8 @@ public class RadiologyTabController {
 
             RadiologyRequestFormController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setRequest(request, patientList, doctorList);
+            // Pass the scanType to the form controller
+            controller.setRequest(request, patientList, doctorList, scanType);
 
             dialogStage.showAndWait();
 
