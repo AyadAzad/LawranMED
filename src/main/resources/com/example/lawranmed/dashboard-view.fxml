@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.DashboardController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.DashboardController">
     <children>
-        <Label layoutX="30.0" layoutY="20.0" text="Dashboard" textFill="#2c3e50">
+        <Label layoutX="30.0" layoutY="20.0" text="Dashboard">
             <font>
                 <Font name="Arial Bold" size="36.0" />
             </font>
@@ -30,51 +30,51 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);">
+                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0">
                     <children>
-                        <Label text="Total Patients" textFill="#2c3e50">
+                        <Label text="Total Patients">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label text="1,250" textFill="#3498db">
+                        <Label text="1,250">
                             <font>
                                 <Font name="Arial Bold" size="30.0" />
                             </font>
                         </Label>
                     </children>
                 </VBox>
-                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);" GridPane.columnIndex="1">
+                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" GridPane.columnIndex="1">
                     <children>
-                        <Label text="Total Doctors" textFill="#2c3e50">
+                        <Label text="Total Doctors">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label text="75" textFill="#3498db">
+                        <Label text="75">
                             <font>
                                 <Font name="Arial Bold" size="30.0" />
                             </font>
                         </Label>
                     </children>
                 </VBox>
-                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);" GridPane.columnIndex="2">
+                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" GridPane.columnIndex="2">
                     <children>
-                        <Label text="Appointments Today" textFill="#2c3e50" textAlignment="CENTER" wrapText="true">
+                        <Label text="Appointments Today" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>
                         </Label>
-                        <Label text="45" textFill="#3498db">
+                        <Label text="45">
                             <font>
                                 <Font name="Arial Bold" size="30.0" />
                             </font>
                         </Label>
                     </children>
                 </VBox>
-                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);" GridPane.columnIndex="3">
+                <VBox alignment="CENTER" prefHeight="120.0" prefWidth="160.0" GridPane.columnIndex="3">
                     <children>
-                        <Label text="Pending Lab Tests" textFill="#2c3e50" textAlignment="CENTER" wrapText="true">
+                        <Label text="Pending Lab Tests" textAlignment="CENTER" wrapText="true">
                             <font>
                                 <Font name="Arial Bold" size="18.0" />
                             </font>

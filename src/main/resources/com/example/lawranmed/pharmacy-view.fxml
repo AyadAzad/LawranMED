@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.PharmacyController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lawranmed.PharmacyController">
     <children>
-        <Label layoutX="30.0" layoutY="20.0" text="Pharmacy" textFill="#2c3e50">
+        <Label layoutX="30.0" layoutY="20.0" text="Pharmacy">
             <font>
                 <Font name="Arial Bold" size="36.0" />
             </font>
@@ -20,7 +20,7 @@
         <HBox layoutX="30.0" layoutY="80.0" spacing="10.0">
             <children>
                 <TextField fx:id="searchField" prefWidth="300.0" promptText="Search by drug name or manufacturer" />
-                <Button onAction="#handleIssuePrescription" prefWidth="150.0" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Issue Prescription" />
+                <Button onAction="#handleIssuePrescription" prefWidth="150.0" text="Issue Prescription" />
             </children>
         </HBox>
         <TableView fx:id="drugTable" layoutX="30.0" layoutY="130.0" prefHeight="400.0" prefWidth="740.0">

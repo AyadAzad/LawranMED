@@ -1,9 +1,13 @@
 package com.example.lawranmed;
 
+import atlantafx.base.theme.PrimerDark;
+import atlantafx.base.theme.PrimerLight;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -12,6 +16,23 @@ public class MainController {
 
     @FXML
     private StackPane mainContent;
+
+    @FXML
+    private ToggleButton themeToggler;
+
+    @FXML
+    private void initialize() {
+        showDashboard();
+    }
+
+    @FXML
+    private void toggleTheme() {
+        if (themeToggler.isSelected()) {
+            Application.setUserAgentStylesheet(new PrimerDark().getUserAgentStylesheet());
+        } else {
+            Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
+        }
+    }
 
     @FXML
     private void showDashboard() {

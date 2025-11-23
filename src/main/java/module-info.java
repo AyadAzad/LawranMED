@@ -9,6 +9,7 @@ module com.example.lawranmed {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires atlantafx.base;
 
     opens com.example.lawranmed to javafx.fxml;
     exports com.example.lawranmed;
