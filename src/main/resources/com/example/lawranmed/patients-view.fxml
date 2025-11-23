@@ -23,7 +23,7 @@
                 <TextField fx:id="searchField" prefWidth="300.0" promptText="Search by name, email, or contact number" />
             </children>
         </HBox>
-        <TableView fx:id="patientsTable" layoutX="40.0" layoutY="130.0" prefHeight="400.0" prefWidth="740.0">
+        <TableView fx:id="patientsTable" layoutX="40.0" layoutY="130.0" prefHeight="400.0" prefWidth="900.0">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="100.0" text="First Name" />
